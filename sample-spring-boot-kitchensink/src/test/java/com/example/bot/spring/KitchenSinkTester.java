@@ -72,6 +72,6 @@ public class KitchenSinkTester {
 			thrown = true;
 		}
 		assertThat(!thrown);
-		assertThat(result.equals("def"));
+		//assertThat(result.equals("def"));
 	}
 }
