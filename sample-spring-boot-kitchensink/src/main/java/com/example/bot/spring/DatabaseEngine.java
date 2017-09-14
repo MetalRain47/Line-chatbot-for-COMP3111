@@ -57,6 +57,7 @@ public class DatabaseEngine {
 		throw new Exception("NOT FOUND");
     }
 	
-	private final String FILENAME = "/static/database.txt";
+	//private final String FILENAME = "/static/database.txt";
+	private final String FILENAME = "/resources/static/database.txt";
 
 }
