@@ -63,7 +63,7 @@ public class KitchenSinkTester {
 	}
 	
 	@Test
-	public void testFound() throws Exception {
+	public void testFound_abc() throws Exception {
 		boolean thrown = false;
 		String result = null;
 		try {
@@ -73,5 +73,18 @@ public class KitchenSinkTester {
 		}
 		assertThat(!thrown);
 		assertThat(result.equals("def"));
+	}
+	
+	@Test
+	public void testFound_Hi() throws Exception {
+		boolean thrown = false;
+		String result = null;
+		try {
+			result = this.databaseEngine.search("Hi");
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertThat(!thrown);
+		assertThat(result.equals("Hey, how things going?"));
 	}
 }
