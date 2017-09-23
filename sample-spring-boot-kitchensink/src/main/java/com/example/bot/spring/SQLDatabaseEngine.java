@@ -18,16 +18,20 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		String result = null;
 		String pg_getResponse = "SELECT response FROM chat_keyphrases WHERE keyphrase = '" + text + "'";
 		
+		Connection postgres_connect = null;
+		PreparedStatement pg_stmt = null;
+		ResultSet rs = null;
+		
 		try {
-			Connection postgres_connect = getConnection();
-			PreparedStatement pg_stmt = postgres_connect.prepareStatement(pg_getResponse);
-			ResultSet rs = pg_stmt.executeQuery();
+			postgres_connect = getConnection();
+			pg_stmt = postgres_connect.prepareStatement(pg_getResponse);
+			rs = pg_stmt.executeQuery();
 			
 			while (rs.next()) {
 				result = rs.getString("response");
 			}
 		} catch (SQLException e) {
-			log.info("IOException while reading from DB: {}", e.toString());
+			log.info("SQLException while reading from DB: {}", e.toString());
 		} finally {
 			try {
 				if (rs != null)
@@ -36,8 +40,8 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 					pg_stmt.close();
 				if (postgres_connect != null)
 					postgres_connect.close();
-			} catch (IOException ex) {
-				log.info("IOException while closing from DB: {}", ex.toString());
+			} catch (SQLException ex) {
+				log.info("SQLException while closing DB: {}", ex.toString());
 			}
 		}
 		
