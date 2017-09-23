@@ -16,7 +16,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 	String search(String text) throws Exception {	// text is the input text the user types in.
 		//Write your code here
 		String result = null;
-		String pg_getResponse = "SELECT response FROM chat_keyphrases WHERE keyphrase = '" + text + "'";
+		String pg_getResponse = "SELECT response FROM chat_keyphrases WHERE lower(keyphrase) = lower('" + text + "')";
 		
 		Connection postgres_connect = null;
 		PreparedStatement pg_stmt = null;
