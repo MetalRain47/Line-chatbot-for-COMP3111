@@ -97,6 +97,7 @@ public class KitchenSinkController {
 	public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
 		log.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 		log.info("This is your entry point here:");
+		log.info("New Log statement");
 		log.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 		TextMessageContent message = event.getMessage();
 		handleTextContent(event.getReplyToken(), event, message);
