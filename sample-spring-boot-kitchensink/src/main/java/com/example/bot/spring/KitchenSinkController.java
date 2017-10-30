@@ -235,6 +235,28 @@ public class KitchenSinkController {
                 this.reply(replyToken, templateMessage);
                 break;
             }
+            case "carousel": {
+                String imageUrl = createUri("/static/buttons/1040.jpg");
+                CarouselTemplate carouselTemplate = new CarouselTemplate(
+                        Arrays.asList(
+                                new CarouselColumn(imageUrl, "Title 1", "Subtitle 1", Arrays.asList(
+                                        new URIAction("Go to line.me",
+                                                      "https://line.me"),
+                                        new PostbackAction("Say hello1",
+                                                           "hello1")
+                                )),
+                                new CarouselColumn(imageUrl, "Title 2", "Subtitle 2", Arrays.asList(
+                                        new PostbackAction("say hello2",
+                                                           "hello2",
+                                                           "hello2"),
+                                        new MessageAction("Say message",
+                                                          "message")
+                                ))
+                        ));
+                TemplateMessage templateMessage = new TemplateMessage("Carousel alt text", carouselTemplate);
+                this.reply(replyToken, templateMessage);
+                break;
+            }
             case "mainmenu": {
             	log.info("Showing 'mainmenu' carousel");
                 String imageUrl = createUri("/static/buttons/food_image.jpeg");
@@ -243,12 +265,17 @@ public class KitchenSinkController {
                                 new CarouselColumn(imageUrl, "My Meals", "Subtitle 1", Arrays.asList(
                                 		new MessageAction("Log meal(s)","logMeal"),
                                         new MessageAction("Meal History","mealHistory"),
-                                        new MessageAction("Meal Suggestions", "mealSuggests"))),
+                                        new MessageAction("Meal Suggestions", "mealSuggests")
+                                )),
                                 new CarouselColumn(imageUrl, "My Profile", "Subtitle 2", Arrays.asList(
                                 		new MessageAction("Profile", "myProfile"),
-                                        new MessageAction("Likes/Dislikes", "likeAndDislike"))),
+                                        new MessageAction("Likes/Dislikes", "likeAndDislike")
+                                )),
                                 new CarouselColumn(imageUrl, "Food Info", "Subtitle 3", Arrays.asList(
-                                        new MessageAction("Nutrition Lookup", "nutrLookup")))));
+                                        new MessageAction("Nutrition Lookup", "nutrLookup"))
+                                )
+                        )
+                );
                 TemplateMessage templateMessage = new TemplateMessage("Carousel alt text", carouselTemplate);
                 this.reply(replyToken, templateMessage);
                 break;
