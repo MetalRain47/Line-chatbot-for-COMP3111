@@ -243,17 +243,15 @@ public class KitchenSinkController {
                                 new CarouselColumn(imageUrl, "My Meals", "Subtitle 1", Arrays.asList(
                                 		new MessageAction("Log meal(s)","logMeal"),
                                         new MessageAction("Meal History","mealHistory"),
-                                        new MessageAction("Meal Suggestions", "mealSuggests"),
+                                        new MessageAction("Meal Suggestions", "mealSuggests")
                                 )),
                                 new CarouselColumn(imageUrl, "My Profile", "Subtitle 2", Arrays.asList(
                                 		new MessageAction("Profile", "myProfile"),
                                         new MessageAction("Likes/Dislikes", "likeAndDislike")
-                                ))
-                                /*,
+                                )),
                                 new CarouselColumn(imageUrl, "Food Info", "Subtitle 3", Arrays.asList(
                                         new MessageAction("Nutrition Lookup", "nutrLookup")
                                 ))
-                                */
                         )
                 );
                 TemplateMessage templateMessage = new TemplateMessage("Carousel alt text", carouselTemplate);
