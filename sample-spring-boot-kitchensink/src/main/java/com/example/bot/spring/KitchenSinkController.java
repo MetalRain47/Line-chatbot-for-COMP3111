@@ -259,23 +259,24 @@ public class KitchenSinkController {
             }
             case "mainmenu": {
             	log.info("Showing 'mainmenu' carousel");
-                String imageUrl = createUri("/static/buttons/food_image.jpeg");
+                String imageUrl1 = createUri("/static/buttons/food_image.jpeg");
+                String imageURL2 = createUri("static/buttons/1040.jpg");
                 CarouselTemplate carouselTemplate = new CarouselTemplate(
                         Arrays.asList(
-                                new CarouselColumn(imageUrl, "My Meals", "Subtitle 1", Arrays.asList(
+                                new CarouselColumn(imageUrl1, "My Meals", "Subtitle 1", Arrays.asList(
                                 		new MessageAction("Log meal(s)","logMeal"),
                                         new MessageAction("Meal History","mealHistory"),
                                         new MessageAction("Meal Suggestions", "mealSuggests")
                                 )),
-                                new CarouselColumn(imageUrl, "My Profile", "Subtitle 2", Arrays.asList(
+                                new CarouselColumn(imageUrl2, "Food Info", "Subtitle 2", Arrays.asList(
+                                        new MessageAction("Nutrition Lookup", "nutrLookup"),
+                                        new MessageAction("", "nutrLookup"),
+                                        new MessageAction("", "nutrLookup")
+                                )),
+                                new CarouselColumn(imageUrl2, "My Profile", "Subtitle 3", Arrays.asList(
                                 		new MessageAction("Profile", "myProfile"),
                                         new MessageAction("Likes/Dislikes", "likeAndDislike"),
-                                        new MessageAction("Action 2-3", "action2-3")
-                                )),
-                                new CarouselColumn(imageUrl, "Food Info", "Subtitle 3", Arrays.asList(
-                                        new MessageAction("Nutrition Lookup", "nutrLookup"),
-                                        new MessageAction("Action 3-2", "action32"),
-                                        new MessageAction("Action 3-3", "action33")
+                                        new MessageAction("", "likeAndDislike")
                                 ))
                         )
                 );
@@ -344,8 +345,7 @@ public class KitchenSinkController {
 
 	public KitchenSinkController() {
 		database = new SQLDatabaseEngine();
-		//itscLOGIN = System.getenv("ITSC_LOGIN");
-		itscLOGIN = "K4GZLEAB";
+		itscLOGIN = System.getenv("ITSC_LOGIN");
 	}
 
 	private SQLDatabaseEngine database;
