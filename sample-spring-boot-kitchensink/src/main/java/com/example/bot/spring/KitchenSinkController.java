@@ -270,13 +270,13 @@ public class KitchenSinkController {
                                 )),
                                 new CarouselColumn(imageUrl2, "Food Info", "Subtitle 2", Arrays.asList(
                                         new MessageAction("Nutrition Lookup", "nutrLookup"),
-                                        new MessageAction("", "nutrLookup"),
-                                        new MessageAction("", "nutrLookup")
+                                        new MessageAction(" ", "nutrLookup"),
+                                        new MessageAction(" ", "nutrLookup")
                                 )),
                                 new CarouselColumn(imageUrl2, "My Profile", "Subtitle 3", Arrays.asList(
                                 		new MessageAction("Profile", "myProfile"),
                                         new MessageAction("Likes/Dislikes", "likeAndDislike"),
-                                        new MessageAction("", "likeAndDislike")
+                                        new MessageAction(" ", "likeAndDislike")
                                 ))
                         )
                 );
