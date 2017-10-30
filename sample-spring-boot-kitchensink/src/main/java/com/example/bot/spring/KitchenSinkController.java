@@ -260,7 +260,7 @@ public class KitchenSinkController {
             case "mainmenu": {
             	log.info("Showing 'mainmenu' carousel");
                 String imageUrl1 = createUri("/static/buttons/food_image.jpeg");
-                String imageURL2 = createUri("static/buttons/1040.jpg");
+                String imageUrl2 = createUri("static/buttons/1040.jpg");
                 CarouselTemplate carouselTemplate = new CarouselTemplate(
                         Arrays.asList(
                                 new CarouselColumn(imageUrl1, "My Meals", "Subtitle 1", Arrays.asList(
